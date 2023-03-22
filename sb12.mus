@@ -1,0 +1,1408 @@
+/****おぼえがき*****************************************************************
+/*	C11 Standard(Drums)
+/*	C12 PizzicatoStr
+/*
+/*	★ＰＣＭパートのパンを設定していなかったので追加しました。
+/*
+/*	X68k OPM/MIDI driver v2.20 (c)1990-92 LUM2
+/*	X68k M.M.L. Converter v2.19 (c)1990-92 LUM2
+/*	X68k OPM/MIDI Controller v2.03-05 (c)1990-92 LUM2
+/*
+/*		以上の環境で作成しました。
+/*								1992/02/03
+/*								By.くりんぱ
+/*******************************************************************************
+/*
+/*
+/* = Initialize setting
+
+#title"『Ｓtar Ｂlade／The Theme of STARBLADE』(C)namco【CD発売記念版】By.南京 Sound Group"
+/*#title"『Star Blade／Ending Theme』(C)namco SC-55 By.音とり担当あうぇっど"
+/*#title"『Star Blade／Ending Theme』(C)namco SC-55 By.ＰＣＭ担当くりんぱ"
+/*#title"『Star Blade／Ending Theme』(C)namco SC-55 By.味付け担当くりんぱ"
+#pcmfile"sb.pdx"
+p C16 
+p #SC:INIT
+
+/* = Spell data
+
+/*******************************************************************************
+/* - Drums (Orchestra)
+
+A  C10 BR16 BS64 o2 p64 @q0 @v120 l8 r4 
+A  y121,0y0,0 y91,115y93,80  V120 @48 RT
+A       p64
+/*　よく聞くと実はパンしていたティンパニ(^^;)
+A	t180 n51,16,127
+A   @v98 V90  n51,16p+3
+A       [n51,24p+3((]6
+A       [n51,24p+3((]3
+A       [n51,24p-3((]9
+A       [n51,24p-3]15p64
+
+A       [n51,24p-4]20
+A       [n51,24p+4]20
+A       [n51,24p+4]20
+A       [n51,24p-4]20
+A       [n51,24p-4]20
+A       [n51,24p+4]20
+A       [n51,24p+4]12
+A       p64
+A  	V120@v110 n46,8r8 r1r1r1r1r1r1r4 
+A V100@v60 [[n51,32]4]40 [n51,32]20 @v45[n51,32)]44
+
+/*A  #SC:KS+3 t58 V127 @v127 @25 [n36,4r4n36,32n36,32r8.r4n36,4r4n36,8n36,8r4]3
+A   t59 V111 @v110 @25           [n36,4r4n36,32n36,32r8.r4n36,4r4n36,8n36,8r4]3
+A  [r2.]16
+A  y91,120V118 @v116[n36,4r4r4 n36,16n36,16r8r4r4 n36,4r4r4 n36,%16 r%16 n36,%16 r4r4]3
+A  r1 r2 r2 r2 r2 r2 r2 #SC:KS0 r2  y91,115
+A @48r2 r2 r2 @v40V50[n51,48)))]48[n51,48]48[(((n51,48]48
+
+/****くりんぱ追加個所その１なのだ***********************************************
+/*	「追加内容」
+/*		ドラムパートをC11にもう一個割り当てて@0のスタンダードの
+/*		「High Q」を使用して「ちょび音」（笑）を表現しました。
+/*		これでまた一歩原曲に近づいたと思います　f(^^;)。
+/*******************************************************************************
+/* - Drums (Standard:High Q Only)
+
+i  C11 BR16 BS64 o2 p64 @q0 @v80 l8 r4
+i  y121,0y0,0 y91,125y93,110 V80
+i	#SC:RM2 @00 RT
+i	#SC:RT27,40
+i	r16[r32]5[r32]5[r32]10[r32]10[r32]190
+i	r4 r1r1r1r1r1r1r4r16 [[r32]4]40 [r32]20 [r32)]44
+
+i	V75[n27,4r4n27,32n27,32r8.r4n27,4r4n27,8n27,8r4]3
+i	[r2.]16
+i	V85[n27,4r4r4 n27,16n27,16r8r4r4 n27,4r4r4 n27,%16 r%16 n27,%16 r4r4]3
+i	r1 r2 r2 r2 r2 r2 r2 r2  r2 r2 r2 [r64]64[r64]64[r64]64
+
+/*******************************************************************************
+/* - Drums H.H 
+k C11 r4 
+k #SC:RT42,84
+k #SC:RL42,60
+k #SC:RR42,120
+k #SC:RT42,72
+k #SC:RL46,60
+k #SC:RR46,120
+k #SC:RT51,70
+k #SC:RL51,63
+k #SC:RR51,120
+k  r8 r1 r1 r1 r1 r1 r1 r1 r8
+k  r1r1r1r1r1r1r4
+
+k n42,%37 n42,%30 n42,%29
+k n42,%35 n42,%31 n42,%30
+k l%21 n42n42n42
+k n46n42n42
+k l%22
+k n42n42n42
+k n42n42n42
+
+k l%21
+k n42n42n42
+k n46n42n42
+k [n42,,127n42n42n42n42n42n42,,127n42n42n46n42n42]
+k  n42,,127n42n42n42n42n42 
+k l%23
+k n46n42n46 n42n46n42
+
+k l%8
+k n46n42n42
+k n42n42n42
+k n42,,127n42n42n46n42n42
+k n42,,127n42n42n42n42n42n42,,127n42n42n46n42n42
+k [n46n42n42n42n42n42n42,,127n42n42n46n42n42
+k n42,,127n42n42n42n42n42n42,,127n42n42n46n42n42]5
+k l4. [n51]32  l%12 
+k [n46n42n42n42n42n42n42,,127n42n42n46n42n42n42,,127n42n42n42n42n42n42,,127n42n42n46n42n42]6
+
+/*******************************************************************************
+/* - Bass (Orchestra)
+
+B  C2 BR16 BS64 o2 p64 @q0 @v120 l8 r4
+B  y121,0y0,0 y91,95y93,64 V124 
+/*		1   2   3   4   5   6   7   8	*****Funky
+B	#SC:TM  0,  0,-30,-30,  0,  0,  0,  0
+B  @43
+B  V127d+8&V118r1&r1&r1&r1&r1&r1&r1&r8
+B  r1r1r1r1r1r1r4< b-1&r1&r1&r1&r1&r1&r1  
+
+B   b-1a-1&r1g1a-1&r1
+B  b-2.&r2.&r2.&r2. a-2.&r2.&r2.&r2. b-2.&r2.&r2.&r2.
+B  a-2.&r2.&r2.&r2.
+B  c+2.&r2.&r2.&r2.
+B  c2.&r2.&r2.&r2.
+B  <b2.&r2.&r2.&r2.
+
+/* last (long release)
+
+B  t120 V65r1o2 t108 l2 b-  a g f e- d t103 c t94 f&r&r 
+B t60 o1
+B V72>b-0<b-8&
+B V73r8&
+B  V74r16&
+B  V75r16&
+B  V80r16&
+B  V85r16&
+B  V90r8&
+B  V95r8&
+B  V98r16&
+B  V99r16&
+B V100r32&
+B V105r32&
+B V110r32&
+B V115r16&
+B V116r16&
+B V117r16&
+B V118r16&
+B V120r16&
+B V122r16&
+B V123r16&
+B V124r16&
+B V125r16&
+B V126r16&
+B V127r8&
+B V125r16&
+B V123r16&
+B V122r16&
+B V120r16&
+B V117r16&
+B V115r16&
+B V113r8&
+B V111r16&
+B V110r16&
+B V110r16&
+B V108r16&
+B V105r16& 
+B V102r16& 
+B V100r16& 
+B V98r16& 
+B  V96r16& 
+B  V94r16& 
+B  V92r16& 
+B  V90r16& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64& 
+B  V-1r64&
+B  V-1r64
+
+/*******************************************************************************
+/* - Bass  sub (Orchestra)
+
+g  C8 BR16 BS64 o2 p64 @q0 @v60 l8 r4
+g  y121,0y0,0 y91,105y93,64 @42
+g  V90d+8&V118r1&r1&r1&r1&r1&r1&r1&r8
+g  r1r1r1r1r1r1r4< b-1&r1&r1&r1&r1&r1&r1  
+
+g   b-1a-1&r1g1a-1&r1
+g  b-2.&r2.&r2.&r2. a-2.&r2.&r2.&r2. b-2.&r2.&r2.&r2.
+g  a-2.&r2.&r2.&r2.
+g  c+2.&r2.&r2.&r2.
+g  c2.&r2.&r2.&r2.
+g  <b2.&r2.&r2.&r2.
+
+/* last
+
+g  r1o2 V70l2 b-  a g f e- d  c f&r&r 
+g   o2
+g V72b-8&
+g V73r8&
+g  V74r16&
+g  V75r16&
+g  V80r16&
+g  V85r16&
+g  V90r8&
+g  V95r8&
+g  V98r16&
+g  V99r16&
+g V100r32&
+g V102r32&
+g V105r32&
+g V110r32&
+g V115r16&
+g V116r16&
+g V117r16&
+g V118r16&
+g V120r16&
+g V122r16&
+g V123r16&
+g V124r16&
+g V125r16&
+g V126r16&
+g V127r8&
+g V125r16&
+g V123r16&
+g V122r16&
+g V120r16&
+g V117r16&
+g V115r16&
+g V113r8&
+g V111r16&
+g V110r16&
+g V110r16&
+g V108r16&
+g V105r16& 
+g V102r16& 
+g V100r16& 
+g V98r16& 
+g  V96r16& 
+g  V94r16& 
+g  V92r16& 
+g  V90r16 
+
+
+/*******************************************************************************
+/* - Brass0
+
+C  C3  BR16 BS64 o1 p64 @q0 @v123 l8 r4 
+C  y121,0y0,0 y91,95y93,64  V124 
+
+/*		1   2   3   4   5   6   7   8	*****Funky
+C	#SC:TM  0,  0,-20,-20, -5,  0,  0,  0
+C  @61
+C	d+0>d+0>d+32,127&V110r1&r1&r1&r1&r1&r1&r1&r%42  
+/* - String
+/*		1   2   3   4   5   6   7   8	*****Funky
+C	#SC:TM  0,  0,-20,-20, -5,  0,  0,  0
+C       @49 V124 @v118 @q1 r1r1r1r1r1r1r4
+C       t199 o4g+%37e-%30<b-%29 t205 >g%35d%31<a%30> 
+/* 盛り上がりにかける？
+C	#SC:TM  0,  0,-10,-10, -5,  0,  0,  0
+C       t161 V100@v100 @q0 r4 <g-0>c+0f+1 @v112<b-0>d+0g+1&r4&r1& r2
+C       &V95r4&V90r4&V75r4
+/*                                                     次のメロディがくるとき
+/*							もう音は消えているようだ。
+C 	&V50r4
+C       r1
+/****** くりんぱ担当
+C  	@v70 V102 [r1]6
+C	o5 @44[r2.]4 
+C      @v63V98<b-4 &@v75V105r8 & @v76V107  r8&@v78V108r4 
+C      @v80V110 a-4 &@v83V112r8  &@v85V113   r8&@v87V114r4
+C      @v90V115 g4  &@v88V110r8 &@v87V108   r8&@v87V105r4
+C      @v85V100 f4 &r4 &r4
+C [r2.]4
+C      @v63V98 b-4 &@v75V105r8 &@v76V107r8 &@v78V108r4 
+C      @v80V110 a-4 &@v83V112r8 &@v85V113r8 &@v87V114r4
+C      @v90V115 g4  &@v88V110r8 &@v87V108r8 &@v87V105r4
+C	&@v85V100 r2.		
+
+/* main brass
+C @v110V110 y91,115
+/*		1   2   3   4   5   6   7   8	*****Funky
+C	#SC:TM  0,  0,  5,  5,  0,  0,  0,  0
+C @56 o4 b-8a-16g16 f2&r2.&r2.&r4.    g8a-8f8b-8a-16g16 e-2&r2.&r2.
+C &r4. e-8f8f+8g+8f+16f16e-2&r4.&g+0r8&r4&>
+C c+0r2.&r%4&
+
+C V-5r%10&
+C V-5r%10&
+C V-5r%10&
+C V-5r%10&
+C V-5r%10&
+
+C V+5r%10&
+C V+5r%10&
+C V+5r%10&
+C V+5r%10&
+C V+5r%10&
+
+C V+5r%10&
+C V+5r%10&
+C V+5r%10&
+C V+5r%10
+
+
+/* last 
+C y91,95
+C  @49r1 V68 o4 l2 b- > c e- d%32c%32d%32 < b-f  b-  >c&r&r
+C V72<f0b-0>d8&
+C V73r8&
+C  V74r16&
+C  V75r16&
+C  V80r16&
+C  V85r16&
+C  V90r8&
+C  V95r8&
+C  V98r16&
+C  V99r16&
+C V100r32&
+C V102r32&
+C V105r32&
+C V110r32&
+C V115r16&
+C V116r16&
+C V117r16&
+C V118r16&
+C V120r16&
+C V122r16&
+C V123r16&
+C V124r16&
+C V125r16&
+C V126r16&
+C V127r8&
+C V125r16&
+C V123r16&
+C V122r16&
+C V120r16&
+C V117r16&
+C V115r16&
+C V113r8&
+C V111r16&
+C V110r16&
+C V110r16&
+C V108r16&
+C V105r16& 
+C V102r16& 
+C V100r16& 
+C V98r16& 
+C  V96r16& 
+C  V94r16& 
+C  V92r16& 
+C  V90r16 
+
+
+
+
+/*******************************************************************************
+/* - Strings
+
+D  C4  BR16 BS64 o5 p64 @q0 @v70 l8 r4 
+D  y121,0y0,0 y91,95y93,64  V80 @48
+D 	r1r1 r1 V65b-1&V70r1&V75r1&V80r1&r1&r1&r1&r1&r1&r4&r2&r%144
+D  V70&r1&r1&r1&r1&r1&r1&r1
+D  &r1&r1&r1
+D  &r1&r1&r1
+
+/****** くりんぱ担当
+
+D	@v78V88t90
+/*		1   2   3   4   5   6   7   8	*****Funky
+D	#SC:TM  0,  0,-10, 15,  0,  0,  0,  0
+D	@71 e-0<g%22 >d0<f%13 >c0<e-%13 >d0<f2 &r2. r4r8d0f8c0b-8d0>c8
+D	f0<g+4.>e-0<g16>d0<f16>e-0<g16>f0<g+16>e-0<g16>d0<f16
+D	>e-0<g16>d0<f16>c0<e-16>d0<f16>e-0<g2&r2.&r2.r2.
+/****** ２回目
+
+D	>e-0<g%22 >d0<f%13 >c0<e-%13 >d0<f2 &r2. r4r8d0f8c0b-8d0>c8
+D	f0<g+4.>e-0<g16>d0<f16>e-0<g16>f0<g+16>e-0<g16>d0<f16
+D	>c0<e-2.&r2.&r2.&r2.
+
+/******* - String
+D @48 V80 @v85 o5 c2. c4. c+4.d+2.&r4. d+8c+8c8 <b-2.&r2.&r2.&r2 V70b-4f+2.&r2.&r2.&r2.
+
+/* last (long release)
+D @49 r1 V68 @v100 o4  l2 o3 f f g f e- d c f&r&r 
+D V72<b-0>f8&
+D V73r8&
+D  V74r16&
+D  V75r16&
+D  V80r16&
+D  V85r16&
+D  V90r8&
+D  V95r8&
+D  V98r16&
+D  V99r16&
+D V100r32&
+D V102r32&
+D V105r32&
+D V110r32&
+D V115r16&
+D V116r16&
+D V117r16&
+D V118r16&
+D V120r16&
+D V122r16&
+D V123r16&
+D V124r16&
+D V125r16&
+D V126r16&
+D V127r8&
+D V125r16&
+D V123r16&
+D V122r16&
+D V120r16&
+D V117r16&
+D V115r16&
+D V113r8&
+D V111r16&
+D V110r16&
+D V110r16&
+D V108r16&
+D V105r16& 
+D V102r16& 
+D V100r16& 
+D V98r16& 
+D  V96r16& 
+D  V94r16& 
+D  V92r16& 
+D  V90r16& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64& 
+D  V-1r64
+
+
+/*******************************************************************************
+/* - Soft
+
+E   C5  BR16 BS64 o3 p64 @q0 @v123 l8 r4 
+E  y121,0y0,0 y91,95y93,64     @56
+/*		1   2   3   4   5   6   7   8	*****Funky   ここの音色が問題
+E	#SC:TM  0,  0, -26,  5,  0,  0,  0,  0 
+E	r1r1r1 V105d+1&r1&V90 r1&r1&r4[r1]10
+
+/* - main brass
+/*		1   2   3   4   5   6   7   8	*****Funky
+E	#SC:TM  0,  0, -25,  5,  0,  0, 20,  0
+E  y93,75@56 V110 r1r2 >f0<f4&V117r2&V118r1
+E M10,18,20,2 V105>b-0<b-4>>c0<c4>e-0<e-4>d0<d%16>c0<c%16>d0<d%16<>b-0<b-1&r1 
+E >b-0<b-4>>c0<c4>e-0<e-4>d0<d%16>c0<c%16>d0<d%16>c0<c1&r1 y93,64MOF
+/****** くりんぱ担当
+E	@q13 @v98 V105 l8 [d+cd<b->c<f>]16
+
+E	@v108 V107 > l8 [c<fb-gg+f]3
+E	>c<fb-gg+>c+< 
+E   [b-e-a-f g e-]3
+E   b-e-a-fg b-
+E   [a-d-g-e-fg-]4
+
+/* last
+E  @44r1  V72 o3 l2 b- > c e- d%32c%32d%32 < b-f  b-  >c&r&r 
+E V72d8&
+E V73r8&
+E  V74r16&
+E  V75r16&
+E  V80r16&
+E  V85r16&
+E  V90r8&
+E  V95r8&
+E  V98r16&
+E  V99r16&
+E V100r32&
+E V102r32&
+E V105r32&
+E V110r32&
+E V115r16&
+E V116r16&
+E V117r16&
+E V118r16&
+E V120r16&
+E V122r16&
+E V123r16&
+E V124r16&
+E V125r16&
+E V126r16&
+E V127r8&
+E V125r16&
+E V123r16&
+E V122r16&
+E V120r16&
+E V117r16&
+E V115r16&
+E V113r8&
+E V111r16&
+E V110r16&
+E V110r16&
+E V108r16&
+E V105r16& 
+E V102r16& 
+E V100r16& 
+E V98r16& 
+E  V96r16& 
+E  V94r16& 
+E  V92r16& 
+E  V90r16 
+
+/****くりんぱ追加個所その２なのだ***********************************************
+/*	「追加内容」
+/*		PizzicatoStrを味付け程度の音量で入れました。
+/*		実際にはトレモロストリングスでかき消されてあまり
+/*		聞こえません(^^;)　でも音量あげると
+/*		以外に目立ってしまうので少々押さえ目にしました。
+/*******************************************************************************
+j  C12 BR16 BS64 o3 p64 @q0 @v84 l8 r4 
+j  y121,0y0,0 y91,115y93,106 V72 @45
+j	r1r1r1 r1r1 r1r1r4[r1]10
+
+/* - PizzicatoStr
+j	r1r2 r4r2r1
+j	r4>r4r4r%16r%16r%16<r1r1 
+j	r4>r4r4r%16r%16r%16r1r1 
+
+/****** くりんぱ担当
+j	@q0 l8 [d+cd<b->c<f>]16
+
+j	V78 > l8 [c<fb-gg+f]3
+j	>c<fb-gg+>c+< 
+j	[b-e-a-fge-]3
+j	b-e-a-fgb-
+j	[a-d-g-e-fg-]4
+
+/* last
+j	r1  o3 l2 r > r r r%32r%32r%32 < rr  r  >r&r&r 
+j	r2 r2 r2 r2 r2 r2 
+
+/*******************************************************************************
+/* - sub strings
+
+h  C9  BR16 BS64 o3 p64 @q0 @v100 l8 r4 
+h  y121,0y0,0 y91,115y93,64  V124 
+h	r1r1r1 r1 r1 r1r1r4[r1]10
+
+/* - Strings delay
+/*		1   2   3   4   5   6   7   8	*****Funky
+h	#SC:TM  0,  0, -5,  5,-10,  0,  0,  0
+h y93,75 @49 V70 r64 
+
+h r1r2 >f0<f4&r2&r1
+h >b-0<b-4>>c0<c4>e-0<e-4>d0<d%16>c0<c%16>d0<d%16<>b-0<b-1&r1 
+h >b-0<b-4>>c0<c4>e-0<e-4>d0<d%16>c0<c%16>d0<d%16>c0<c1&r1 y93,64
+
+/****** くりんぱ担当
+h	@48 r%1 @q15 @v92 V80 l8 [d+cd<b->c<f>]16
+
+h	@v108 V98 > l8 [c<fb-gg+f]3
+h	>c<fb-gg+>c+< 
+h   [b-e-a-f ge-]3
+h   b-e-a-fg b-
+h   [a-d-g-e-fg-]4
+
+/* last (cla)
+h  @q0@71r%188  V68 o3 l2 b- > c e- d%32c%32d%32 < b-f  b-  >c&r&r 
+h V65b-4&
+h  V70r4&
+h  V85r4&
+h V90r4&
+h V105r8&
+h V107r8&
+h V108r8&
+h V109r8&
+h V110r4&
+h V100r4&
+h V95r4&
+h V90r4&
+h V80r4& 
+h  V60r4 
+
+
+/*******************************************************************************
+/* - mute Trp
+
+F  C6  BR16 BS64 o3 p64 @q0 @v123 l8 r4 
+F  y121,0y0,0 y91,95y93,64  V100 
+/*		1   2   3   4   5   6   7   8	*****Funky  ここの音色が問題
+/*F	#SC:TM  0,  0, -25,  5,  -5,  0,  19,  0 
+F	#SC:TM  0,  0, -26,  5,  0,  0,  0,  0 
+F  @56
+F	r1r1r1 V40f+8&r1&r2&r4.& r1&r1&r4[r1]11r4r1r1
+
+
+F	#SC:TM  0,  0, 0,  0,  0,  0,  0,  0
+
+/* backing brass
+F   V90 @v80 y0,127 @27 r1r4>d+0<d+2.&@v110V110r2&@v120V127r2 
+F   @v80V90r1r4>g0<g2.&@v110V110r2&@v120V127r2
+
+/* backing string
+F @49 @v15V50 [r2.]4 M1,24
+F o6c2&@v30V65r4& 
+F @v40V73 r8& @v43V75  r8 & 
+F @v47V78 r8& @v50V82  r8 & 
+F @v60V86 r4& @v70V89  r4 & 
+F @v60V90 r4& @v50V91  r4 & 
+
+F @v40V92 r2.
+
+F [r2.]4@v15V50 
+
+F o6c2&@v30V65r4&
+F @v40V73 r8& @v43V75  r8 & 
+F @v47V78 r8& @v50V82  r8 & 
+F @v60V86 r4& @v70V89  r4 & 
+F @v60V90 r4& @v50V91  r4 & 
+
+F @v40V92r2.MOF
+
+/* main brass (sub)
+F @v85V75 y91,105
+/*		1   2   3   4   5   6   7   8	*****Funky
+F	#SC:TM  0,  0,  5,  5,  0,  0,  0,  0      
+F y121,0y0,127@88 o4 b-8a-16g16 f2&r2.&r2.&r4.    g8a-8f8b-8a-16g16 e-2&r2.&r2.
+/*						       ^-- あやしい
+F &r4. e-8f8f+8g+8f+16f16e-2&r4.&g+0r8&r4&>c+0r2.&r2.
+
+/* last 
+F	#SC:TM  0,  0,  0,  0,  0,  0,  0,  0
+F y91,105 M2,5
+F  @50r1 V70 o4 l2 b- > c e- d%32c%32d%32 < b-f  b-  >c&r&r
+F V72d8&
+F V73r8&
+F  V74r16&
+F  V75r16&
+F  V80r16&
+F  V85r16&
+F  V90r8&
+F  V95r8&
+F  V98r16&
+F  V99r16&
+F V100r32&
+F V102r32&
+F V105r32&
+F V110r32&
+F V115r16&
+F V116r16&
+F V117r16&
+F V118r16&
+F V120r16&
+F V122r16&
+F V123r16&
+F V124r16&
+F V125r16&
+F V126r16&
+F V127r8&
+F V125r16&
+F V123r16&
+F V122r16&
+F V120r16&
+F V117r16&
+F V115r16&
+F V113r8&
+F V111r16&
+F V110r16&
+F V110r16&
+F V108r16&
+F V105r16& 
+F V102r16& 
+F V100r16& 
+F V98r16& 
+F  V96r16& 
+F  V94r16& 
+F  V92r16& 
+F  V90r16 
+
+
+
+
+/*******************************************************************************
+/* - mute Trp _ harp _ timpani bon ^^;
+
+G  C6  BR16 BS64 o3 p64 @q0 @v123 l8 r4 
+G  y121,0y0,0 y91,95y93,64  V100
+G	r1r1r1 r4V40c+8&r2&r8&r1&r1&r1&r4 [r1]6 r%48 
+
+G C1 l32 V55@v70 @46 o5 [[b-]4]40 [b-]20 [b-]44
+G V110@v100 @47 o2b-2r2
+/* backing brass
+G   V80 @v80 y0,127 @27 r4>g+0<g+2.&@v110V110r2&@v120V120r2
+G   @v80V90>r1r4>d+0<d+2.&@v110V110r2&@v120V120r2
+G [r2.]16
+
+/* backing Voice
+
+G @v85V60 y91,125
+G	#SC:TM  0,  0,  2,  3,  0,  0,  0,  0
+G y121,0y0,127@52 o4 b-8a-16g16 f2&r2.&r2.&r4.    g8a-8g8b-8a-16g16 e-2&r2.&r2.
+G &r4. e-8f8f+8g+8f+16f16e-2&r4.&g+0r8&r4&>c+0r2.&r2.
+
+
+
+
+G y91,105 M2,5
+G  @50 r1 V68@v80 o3 l2 f f b-1  f f  f  a&r&r
+G V72f0>d8&
+G V73r8&
+G  V74r16&
+G  V75r16&
+G  V80r16&
+G  V85r16&
+G  V90r8&
+G  V95r8&
+G  V98r16&
+G  V99r16&
+G V100r32&
+G V102r32&
+G V105r32&
+G V110r32&
+G V115r16&
+G V116r16&
+G V117r16&
+G V118r16&
+G V120r16&
+G V122r16&
+G V123r16&
+G V124r16&
+G V125r16&
+G V126r16&
+G V127r8&
+G V125r16&
+G V123r16&
+G V122r16&
+G V120r16&
+G V117r16&
+G V115r16&
+G V113r8&
+G V111r16&
+G V110r16&
+G V110r16&
+G V108r16&
+G V105r16& 
+G V102r16& 
+G V100r16& 
+G V98r16& 
+G  V96r16& 
+G  V94r16& 
+G  V92r16& 
+G  V90r16 
+
+
+/*******************************************************************************
+/* - backing 
+
+H  C7  BR16 BS64 o3 p64 @q0 @v80 l8 r4 
+H  y121,0y0,0 y91,115y93,80  @74
+H  [r1]18 r%96 r1r1
+H   r1 r2 r4 r8 r16 
+H    V73   o6 l%4 <g+>cd+ g+gf d+c<b-g+[b-g+]20b-
+H  r1r2r3r8 o6 <g+>cd+ [gg+]19gg+gg+gg+gg+g
+
+/* backing brass
+H  [r2.]16
+H  V110 @v90 @60
+H  o3 r2. g+0>c4.<a+0 > c+4.<g+0> c2.<&r4.r4.
+H     r2. >c0e-2. d+0g2.
+H  &r2. r2. r4. > V80@v80 <a-0>a-4.< d-0>d-2. &r2.   
+
+/* last
+H @44 r1 V72 @v100 o3  l2 o3 f f g f e- d c f&r&r
+H V72b-8&
+H V73r8&
+H  V74r16&
+H  V75r16&
+H  V80r16&
+H  V85r16&
+H  V90r8&
+H  V95r8&
+H  V98r16&
+H  V99r16&
+H V100r32&
+H V102r32&
+H V105r32&
+H V110r32&
+H V115r16&
+H V116r16&
+H V117r16&
+H V118r16&
+H V120r16&
+H V122r16&
+H V123r16&
+H V124r16&
+H V125r16&
+H V126r16&
+H V127r8&
+H V125r16&
+H V123r16&
+H V122r16&
+H V120r16&
+H V117r16&
+H V115r16&
+H V113r8&
+H V111r16&
+H V110r16&
+H V110r16&
+H V108r16&
+H V105r16& 
+H V102r16& 
+H V100r16& 
+H V98r16& 
+H  V96r16& 
+H  V94r16& 
+H  V92r16& 
+H  V90r16 
+  
+
+
+/*******************************************************************************
+/* - mute Trp
+
+I  C6  BR16 BS64 o4 p64 @q0 @v123 l8 r4
+I  y121,0y0,0 y91,95y93,64  V100 
+I	r1r1r1 r4r4V85o3g+8&r4& V85r1&r8 &r1&r1&r4[r1]11r4
+/*******************************************************************************
+/* - mute Trp
+
+J  C6  BR16 BS64 o4 p64 @q0 @v123 l8 r4 
+J  y121,0y0,0 y91,95y93,64  V100 
+J	r1r1r1 r4r4r4V90c+8&r4.&r1 V85&r2&r4&r1&r4[r1]11r4
+/*******************************************************************************
+/* - mute Trp
+
+K  C6  BR16 BS64 o4 p64 @q0 @v123 l8 r4 
+K  y121,0y0,0 y91,95y93,64  V100 
+K  r1r1r1 r4r4r4r4V90o3b8&r2.&r8 V85&r1&r1&r4[r1]11r4
+/*******************************************************************************
+/* - mute Trp
+
+L  C6  BR16 BS64 o4 p64 @q0 @v123 l8 r4 
+L  y121,0y0,0 y91,95y93,64  V100 
+L	r1r1r1 r4r4r4r4r4V100f+8&r2&r8 V95&r1&r1&r4[r1]11r4
+/*******************************************************************************
+/* - mute Trp
+
+M  C6  BR16 BS64 o4 p64 @q0 @v123 l8 r4 
+M  y121,0y0,0 y91,95y93,64  V100 
+M	r1r1r1 r4r4r4r4r4r4V90e8&r4&r8 V95&r1&r1&r4[r1]11r4
+/*******************************************************************************
+/* - mute Trp
+
+N  C6  BR16 BS64 o4 p64 @q0 @v123 l8 r4 
+N  y121,0y0,0 y91,95y93,64  
+N	r1r1r1 r4r4r4r4r4r4r4V90o3b8 V95&r1&r8&r1&r4[r1]11r4
+
+
+
+/*******************************************************************************
+/* - Soft
+
+O   C5  BR16 BS64 o3 p64 @q0 @v123 l8 r4 
+O  y121,0y0,0 y91,95y93,64  
+O	r1r1r1 r4V105a+8&r2&r1&r8 V85&r1&r1&r4[r1]11r4
+/*******************************************************************************
+/* - Soft
+
+P   C5  BR16 BS64 o4 p64 @q0 @v123 l8 r4 
+P  y121,0y0,0 y91,95y93,64  
+P	r1r1r1 r4r4V105c+8&r4.&r1 V85&r1&r1&r4[r1]11r4
+/*******************************************************************************
+/* - Soft
+
+a   C5  BR16 BS64 o4 p64 @q0 @v123 l8 r4 
+a  y121,0y0,0 y91,95y93,64  
+a	r1r1r1 r4r4r4V108f+8&r4.&r1 V85&r2&r4&r1&r4[r1]11r4
+/*******************************************************************************
+/* - Soft
+
+b   C5  BR16 BS64 o4 p64 @q0 @v123 l8 r4 
+b  y121,0y0,0 y91,95y93,64  
+b	r1r1r1 r4r4r4r4V113e8&r2.&r8 V85&r1&r1&r4[r1]11r4
+/*******************************************************************************
+/* - Soft
+
+c   C5  BR16 BS64 o4 p64 @q0 @v123 l8 r4 
+c  y121,0y0,0 y91,95y93,64  
+c	r1r1r1 r4r4r4r4r4V120b8&r2&r8 &r1&r1&r4[r1]11r4
+/*******************************************************************************
+/* - Soft
+
+d   C5  BR16 BS64 o4 p64 @q0 @v123 l8 r4 
+d  y121,0y0,0 y91,95y93,64  
+d	r1r1r1 r4r4r4r4r4r4V120g8&r4. &r1&r1&r4[r1]11r4
+/*******************************************************************************
+/* - Soft
+
+e   C5  BR16 BS64 o4 p64 @q0 @v123 l8 r4 
+e  y121,0y0,0 y91,95y93,64  
+e	r1r1r1 r4r4r4r4r4r4r4V120e8&r1 &r8&r1&r4[r1]11r4
+
+
+
+/*******************************************************************************
+/* - Voice 
+
+f  CHP1 F4 p3 r4
+f  r1r1r1 n01,8..r32r4r2r1r1r2r4n01,8..r32r4r1r4
+f	n00,1&r1&r1&r1&r1&r1[r1]4
+
+
+/*******************************************************************************
+/* - misc
+
+l C15
+l    BR16 BS64 o3 p64 @q0 @v80 l8 r4 
+l  y121,0y0,0 y91,115y93,80  
+l  [r1]18 r%96 r1r1
+l   r1 r2 r4 r8 r16 
+l    V73  l%4  rrr rrr rrrr [rr]20r
+l  r1r2r3r8 o6 rrr [rr]19rrrrrrr
+
+/* bell
+l  [r2.]16
+l  V60 @v85 @9 r%8
+l o6 d-2. r2. r2. r2.
+l    c2.  r2. r2. r2.
+l    b2.  r2. r2. r2.
+
+/* last (Flute)
+l @73 r1 V50 @v80 o5  l2 b- >c e- d%32c%32d%32 <b- d b- c&r&r
+l @v50V72d8&
+l V73r8&
+l  V74r16&
+l  V75r16&
+l  V80r16&
+l  V85r16&
+l  V90r8&
+l  V95r8&
+l  V98r16&
+l  V99r16&
+l V100r32&
+l V102r32&
+l V105r32&
+l V110r32&
+l V115r16&
+l V116r16&
+l V117r16&
+l V118r16&
+l V120r16&
+l V122r16&
+l V123r16&
+l V124r16&
+l V125r16&
+l V126r16&
+l V127r8&
+l V125r16&
+l V123r16&
+l V122r16&
+l V120r16&
+l V117r16&
+l V115r16&
+l V113r8&
+l V111r16&
+l V110r16&
+l V110r16&
+l V108r16&
+l V105r16& 
+l V102r16& 
+l V100r16& 
+l V98r16& 
+l  V96r16& 
+l  V94r16& 
+l  V92r16& 
+l  V90r16 
+
+
+/*
+/*	ＬＣＤパターン作成			Ｌｕｅ．（未完成）
+/*	最初の方の p CH は削除してください
+/*	９～１０行を削除しても同じことですが・・
+/*
+
+
+
+p #SC:PD"(c)NAMCO"
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                " r2
+
+
+p #SC:DBC
+p #SC:PD"(c)NAMCO"
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"a               "
+p #SC:DBS"               a" #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                " r8.
+
+p #SC:DBC
+p #SC:PD"(c)NAMCO"
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"aa              "
+p #SC:DBS"              aa" #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                " r8.
+
+p #SC:DBC
+p #SC:PD"(c)NAMCO"
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"aaa             "
+p #SC:DBS"             aaa" #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                " r8.
+
+p #SC:DBC
+p #SC:PD"(c)NAMCO"
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"aaaa            "
+p #SC:DBS"            aaaa" #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                " r8.
+
+p #SC:DBC
+p #SC:PD"(c)NAMCO"
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"aaaaa           "
+p #SC:DBS"           aaaaa" #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                " r8.
+
+p #SC:DBC
+p #SC:PD"(c)NAMCO"
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"aaaaaa          "
+p #SC:DBS"          aaaaaa" #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                " r8.
+
+p #SC:DBC
+p #SC:PD" "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"aaaaaaa         "
+p #SC:DBS"         aaaaaaa" #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                " r8.
+
+p #SC:DBC
+p #SC:PD"Star Blade"
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"aaaaaaaa        "
+p #SC:DBS"        aaaaaaaa" #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                " r8.
+
+p #SC:DBC
+p #SC:PD"Star Blade"
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"aaaaaaaaa       "
+p #SC:DBS"       aaaaaaaaa" #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                " r8.
+
+p #SC:DBC
+p #SC:PD"Star Blade"
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"aaaaaaaaaa      "
+p #SC:DBS"      aaaaaaaaaa" #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                " r8.
+
+p #SC:DBC
+p #SC:PD"Star Blade"
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"aaaaaaaaaaa     "
+p #SC:DBS"     aaaaaaaaaaa" #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                " r8.
+
+p #SC:DBC
+p #SC:PD"Star Blade"
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"aaaaaaaaaaaa    "
+p #SC:DBS"    aaaaaaaaaaaa" #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                " r8.
+
+p #SC:DBC
+p #SC:PD"Star Blade"
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"aaaaaaaaaaaaa   "
+p #SC:DBS"   aaaaaaaaaaaaa" #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                " r8.
+
+p #SC:DBC
+p #SC:PD" "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"aaaaaaaaaaaaaa  "
+p #SC:DBS"  aaaaaaaaaaaaaa" #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                " r2
+
+p #SC:DBC
+p #SC:PD"- Main Theme -"
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"a  a  aa  a  a  " #SC:DBS"aaaaaaaaaaaaaa  "
+p #SC:DBS"  aaaaaaaaaaaaaa" #SC:DBS"  a  a  aa  a  a"
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                " r2r8
+
+p #SC:DBC
+p #SC:PD"- Main Theme -"
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"a  a  aa  a  a  "
+p #SC:DBS"aa a a  a aa a  " #SC:DBS"aaaaaaaaaaaaaa  "
+p #SC:DBS"  aaaaaaaaaaaaaa" #SC:DBS"  a a   aa  a aa"
+p #SC:DBS"  a  a  aa  a  a" #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                " r2r8
+
+p #SC:DBC
+p #SC:PD"- Main Theme -"
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"a  a  aa  a  a  " #SC:DBS"aa a a  a aa a  "
+p #SC:DBS"aa a a  a aa a  " #SC:DBS"aaaaaaaaaaaaaa  "
+p #SC:DBS"  aaaaaaaaaaaaaa" #SC:DBS"  aa    aa  a aa"
+p #SC:DBS"  a a   aa  a aa" #SC:DBS"  a  a  aa  a  a"
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                " r2r8
+
+p #SC:DBC
+p #SC:PD"- Main Theme -"
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"a  a  aa  a  a  "
+p #SC:DBS"aa a a  a aa a  " #SC:DBS"aa a a  a aa a  "
+p #SC:DBS"a aa aaaa a aa  " #SC:DBS"aaaaaaaaaaaaaa  "
+p #SC:DBS"  aaaaaaaaaaaaaa" #SC:DBS"  aa        aa a"
+p #SC:DBS"  aa    aa  a aa" #SC:DBS"  a a   aa  a aa"
+p #SC:DBS"  a  a  aa  a  a" #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+
+p #SC:PD" " r16
+p #SC:PD"Presented by" r2r16
+p #SC:DBC
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"a  a  aa  a  a  " #SC:DBS"aa a a  a aa a  "
+p #SC:DBS"aa a a  a aa a  " #SC:DBS"a aa aaaa a aa  "
+p #SC:DBS"a aa a  a a aa  " #SC:DBS"aaaaaaaaaaaaaa  "
+p #SC:DBS"  aaaaaaaaaaaaaa" #SC:DBS"  a a   aa  aa a"
+p #SC:DBS"  aa        aa a" #SC:DBS"  aa    aa  a aa"
+p #SC:DBS"  a a   aa  a aa" #SC:DBS"  a  a  aa  a  a"
+p #SC:DBS"                " #SC:DBS"                "
+
+p #SC:PD"Presented by" r2r8
+p #SC:DBC
+p #SC:DBS"                " #SC:DBS"a  a  aa  a  a  "
+p #SC:DBS"aa a a  a aa a  " #SC:DBS"aa a a  a aa a  "
+p #SC:DBS"a aa aaaa a aa  " #SC:DBS"a aa a  a a aa  "
+p #SC:DBS"a  a a  a a  a  " #SC:DBS"aaaaaaaaaaaaaa  "
+p #SC:DBS"  aaaaaaaaaaaaaa" #SC:DBS"  a  a  aa  a  a"
+p #SC:DBS"  a a   aa  aa a" #SC:DBS"  aa        aa a"
+p #SC:DBS"  aa    aa  a aa" #SC:DBS"  a a   aa  a aa"
+p #SC:DBS"  a  a  aa  a  a" #SC:DBS"                "
+
+
+p #SC:PD" " r16
+p #SC:PD"N e t w o r k" r2r16
+p #SC:DBC
+p #SC:DBS"                " #SC:DBS"a  a  aa  a  a  "
+p #SC:DBS"aa a a  a aa a  " #SC:DBS"aa a a  a aa a  "
+p #SC:DBS"a aa aaaa a aa  " #SC:DBS"a aa a  a a aa  "
+p #SC:DBS"a  a a  a a  a  " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"  a  a  aa  a  a"
+p #SC:DBS"  a a   aa  aa a" #SC:DBS"  aa        aa a"
+p #SC:DBS"  aa    aa  a aa" #SC:DBS"  a a   aa  a aa"
+p #SC:DBS"  a  a  aa  a  a" #SC:DBS"                " r2.
+
+p #SC:DBC
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                "
+p #SC:DBS"                " #SC:DBS"                " r8
+
+
+p #SC:PD"_              " r16 #SC:PD" " r16
+p #SC:PD"_              " r16 #SC:PD" " r16
+p #SC:PD"_              " r16 #SC:PD" " r16
+p #SC:PD"_              " r16 #SC:PD" " r16
+p #SC:PD"_              " r16 #SC:PD" " r16
+p #SC:PD"This is team_  " r16 #SC:PD"This is team  " r16
+p #SC:PD"This is team_  " r16 #SC:PD"This is team  " r16
+p #SC:PD"Leader_        " r16 #SC:PD"Leader        " r16
+p #SC:PD"Leader_        " r16 #SC:PD"Leader        " r16
+p #SC:PD"Leader_        " r16 #SC:PD"Leader        " r16
+
+p #SC:PD"_              " r16 #SC:PD" " r16 #SC:PD"_              " r16
+
+p #SC:PD"This is team_  " r16 #SC:PD"This is team  " r16
+p #SC:PD"This is team_  " r16 #SC:PD"This is team  " r16
+p #SC:PD"This is team_  " r16 #SC:PD"This is team  " r16
+p #SC:PD"leader._       " r16 #SC:PD"leader.       " r16
+p #SC:PD"leader._       " r16 #SC:PD"leader.       " r16
+
+p #SC:PD"_              " r16 #SC:PD" " r16
+
+p #SC:PD"We accomplished" r16 #SC:PD"We accomplished" r16
+p #SC:PD"We accomplished" r16 #SC:PD"We accomplished" r16
+p #SC:PD"We accomplished" r16 #SC:PD"We accomplished" r16
+p #SC:PD"We accomplished" r16 #SC:PD"We accomplished" r16
+p #SC:PD"We accomplished" r16 #SC:PD"               " r16
+p #SC:PD"the mission_   " r16 #SC:PD"the mission    " r16
+p #SC:PD"the mission_   " r16 #SC:PD"the mission    " r16
+p #SC:PD"the mission_   " r16 #SC:PD"the mission    " r16
+
+p #SC:PD"and will return" r16 #SC:PD"and will return" r16
+p #SC:PD"and will return" r16 #SC:PD"and will return" r16
+p #SC:PD"and will return" r16 #SC:PD"and will return" r16
+p #SC:PD"_              " r16 #SC:PD" " r16
+p #SC:PD"to base now._  " r16 #SC:PD"to base now.   " r16
+p #SC:PD"to base now._  " r16 #SC:PD"to base now.   " r16
+p #SC:PD"to base now._  " r16 #SC:PD"to base now.   " r16
+
+p #SC:PD"_              " r16 #SC:PD" " r16
+
+p #SC:PD"Nice work_     " r16 #SC:PD"Nice work      " r16
+p #SC:PD"Nice work_     " r16 #SC:PD"Nice work      " r16
+p #SC:PD"Nice work_     " r16 #SC:PD"Nice work      " r16
+
+p #SC:PD"_              " r16 #SC:PD" " r16
+
+p #SC:PD"gentlemen._     " r16 #SC:PD"gentlemen.      " r16
+p #SC:PD"gentlemen._     " r16 #SC:PD"gentlemen.      " r16
+p #SC:PD"gentlemen._     " r16 #SC:PD"gentlemen.      " r16
+
+p #SC:PD"_              " r16 #SC:PD" " r16
+
+p #SC:PD"Over._          " r16 #SC:PD"Over.           " r16
+p #SC:PD"Over._          " r16 #SC:PD"Over.           " r16
+p #SC:PD"Over._          " r16 #SC:PD"Over.           " r16
+
+p #SC:PD"_              " r16 #SC:PD" " r16 #SC:PD"_              " r16 #SC:PD" " r16
+p #SC:PD"_              " r16 #SC:PD" " r16 #SC:PD"_              " r16 #SC:PD" " r16
+p #SC:PD"_              " r16 #SC:PD" " r16 #SC:PD"_              " r16 #SC:PD" " r16
+p #SC:PD"_              " r16 #SC:PD" " r16 #SC:PD"_              " r16 #SC:PD" " r16
+p #SC:PD"_              " r16 #SC:PD" " r16 #SC:PD"_              " r16 #SC:PD" " r16
+p #SC:PD"_              " r16 #SC:PD" " r16 #SC:PD"_              " r16 #SC:PD" " r16
+
+
+
